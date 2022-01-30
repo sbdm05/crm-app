@@ -11,5 +11,7 @@ encapsulation ++
 /*placer en dessous pour pouvoir modifier les variables bootstrap*/
 @import './stylings/fonts';
 @import './stylings/theme';
-
+body, html{
+    height : 100%
+}
 
