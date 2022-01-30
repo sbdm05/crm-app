@@ -4,7 +4,12 @@ Ces variables sont accessibles dans toute l'application
 stylings/layout sera importé dans chaque composant concerné
 encapsulation ++
 */
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 
+
+/*placer en dessous pour pouvoir modifier les variables bootstrap*/
 @import './stylings/fonts';
 @import './stylings/theme';
+
 
