@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+Ces variables sont accessibles dans toute l'application
+stylings/layout sera importé dans chaque composant concerné
+encapsulation ++
+*/
+
+@import './stylings/fonts';
+@import './stylings/theme';
