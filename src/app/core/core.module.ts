@@ -22,8 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavComponent,
     FooterComponent,
     UiModule, 
-    TemplatesModule, 
-    IconsModule, 
+    TemplatesModule,  
+    IconsModule
   ]
 })
 export class CoreModule { }
