@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageForgotPasswordComponent } from './login/pages/page-forgot-password/page-forgot-password.component';
 import { PageResetPasswordComponent } from './login/pages/page-reset-password/page-reset-password.component';
 import { PageSignInComponent } from './login/pages/page-sign-in/page-sign-in.component';
-import { PageNotFoundComponent } from './page-not-found/pages/page-not-found/page-not-found.component';
-
+import { PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {path:'' , redirectTo:'/sign-in', pathMatch: 'full' }, 
   {path:'sign-in', component : PageSignInComponent},
@@ -26,7 +25,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
