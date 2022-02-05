@@ -7,8 +7,8 @@ export class Order implements OrderI{
       nbJours = 1;
       tva = 20;
       state = StateOrder.OPTION; // enums
-      typePresta : string ; // besoin d'initialiser dans le constructor sinon prop string || null
-      client: string;
+      typePresta! : string ; // besoin d'initialiser dans le constructor sinon prop string || null
+      client!: string;
       comment!: string;
       id!: number ; 
     // constructor(
@@ -38,10 +38,6 @@ export class Order implements OrderI{
     //   client: string;
     //   comment: string;
     //   id: number ; 
-
-
-
-
 
 
 

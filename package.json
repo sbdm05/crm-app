@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "compodoc": "npx compodoc -p tsconfig.doc.json -o -s",
-    "test": "ng test", 
-    "jsonServer" : "json-server --watch mock_db/db.json"
+    "test": "ng test",
+    "jsonServer": "json-server --watch mock_db/db.json"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
     "bootstrap": "^4.6.0",
-    "rxjs": "~7.5.0",
+    "rxjs": "^7.5.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

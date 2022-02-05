@@ -6,9 +6,6 @@ import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {path:'' , redirectTo:'/sign-in', pathMatch: 'full' }, 
-  {path:'sign-in', component : PageSignInComponent},
-  {path:'reset-password', component : PageResetPasswordComponent},
-  {path:'sign-in', component : PageSignInComponent},
   {
     path: 'orders',
     loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
