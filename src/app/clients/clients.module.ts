@@ -4,6 +4,7 @@ import { PageListClientsComponent } from './pages/page-list-clients/page-list-cl
 import { PageAddClientComponent } from './pages/page-add-client/page-add-client.component';
 import { PageEditClientComponent } from './pages/page-edit-client/page-edit-client.component';
 import { ClientsRoutingModule } from './clients-routing.module';
+import { TemplatesModule } from '../templates/templates.module';
 
 
 
@@ -15,7 +16,8 @@ import { ClientsRoutingModule } from './clients-routing.module';
   ],
   imports: [
     CommonModule, 
-    ClientsRoutingModule
+    ClientsRoutingModule, 
+    TemplatesModule
   ]
 })
 export class ClientsModule { }

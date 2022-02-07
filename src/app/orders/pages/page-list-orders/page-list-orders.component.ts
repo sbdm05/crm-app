@@ -7,10 +7,13 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss']
 })
 export class PageListOrdersComponent implements OnInit {
+
   
   // injection de la classe ordersService
   constructor(private ordersService : OrdersService) {
+   
     console.log('test')
+    // ici on invoque le get collection
     this.ordersService.collection.subscribe(); 
   }
 

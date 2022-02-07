@@ -4,6 +4,7 @@ import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orde
 import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.component';
 import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.component';
 import { OrdersRoutingModule } from './orders-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { OrdersRoutingModule } from './orders-routing.module';
   ],
   imports: [
     CommonModule, 
-    OrdersRoutingModule
+    OrdersRoutingModule, 
+    SharedModule
   ]
 })
 export class OrdersModule { }
