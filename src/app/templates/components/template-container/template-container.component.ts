@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-template-container',
@@ -11,13 +11,27 @@ export class TemplateContainerComponent implements OnInit {
   // si propriété pas initialisée dans le constructor
   // public title!: string;
   // public title: string | undefined;
-  public title: string;
+
+  // import de la valeur depuis Parent
+  @Input() propEnfant!: any;
   
-  constructor() {
-    this.title = "titre"
+  constructor() { 
+    // this.propEnfant n'est pas encore lu depuis le template html
+    console.log(this.propEnfant)
+  }
+
+  ngOnChanges(): void{
+    // fires everytime there is a change
+    console.log(this.propEnfant, 'ngOnChanges')
+  }
+
+  ngDoCheck(): void{
+    console.log(this.propEnfant, "ngDoCheck")
   }
 
   ngOnInit(): void {
+    // fires only once
+    console.log(this.propEnfant)
   }
 
 }

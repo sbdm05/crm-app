@@ -155,15 +155,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(ordersService: <a href="../injectables/OrdersService.html" target="_self">OrdersService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/orders/pages/page-list-orders/page-list-orders.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/orders/pages/page-list-orders/page-list-orders.component.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ordersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OrdersService.html" target="_self" >OrdersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -197,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/orders/pages/page-list-orders/page-list-orders.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/orders/pages/page-list-orders/page-list-orders.component.ts:20</a></div>
                 </td>
             </tr>
 
@@ -221,6 +251,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { OrdersService } from &#x27;../../services/orders.service&#x27;;
 
 @Component({
   selector: &#x27;app-page-list-orders&#x27;,
@@ -229,7 +260,14 @@
 })
 export class PageListOrdersComponent implements OnInit {
 
-  constructor() { }
+  
+  // injection de la classe ordersService
+  constructor(private ordersService : OrdersService) {
+   
+    console.log(&#x27;test&#x27;)
+    // ici on invoque le get collection
+    this.ordersService.collection.subscribe(); 
+  }
 
   ngOnInit(): void {
   }
@@ -239,7 +277,12 @@ export class PageListOrdersComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;page-list-orders works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;app-template-container&gt;
+    &lt;!-- ici contenu de cette page est projeté
+    à la place de ng-content --&gt;
+    &lt;h1&gt;contenu page-list-orders&lt;/h1&gt;
+&lt;/app-template-container&gt;
+
 </code></pre>
     </div>
 
@@ -247,7 +290,22 @@ export class PageListOrdersComponent implements OnInit {
                 <p class="comment">
                     <code>./page-list-orders.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+   
+.bandeau {
+  padding: 1.5rem;
+  background: var(--app-primary);
+  h1 {
+    font-size: var(--app-h1-fs);
+    color: var(--app-light);
+    margin: 0;
+  }
+}
+
+.my-container {
+  max-width: 500px;
+  margin: auto;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -275,8 +333,8 @@ export class PageListOrdersComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>page-list-orders works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PageAddClientComponent', 'selector': 'app-page-add-client'},{'name': 'PageAddOrderComponent', 'selector': 'app-page-add-order'},{'name': 'PageEditClientComponent', 'selector': 'app-page-edit-client'},{'name': 'PageEditOrderComponent', 'selector': 'app-page-edit-order'},{'name': 'PageForgotPasswordComponent', 'selector': 'app-page-forgot-password'},{'name': 'PageListClientsComponent', 'selector': 'app-page-list-clients'},{'name': 'PageListOrdersComponent', 'selector': 'app-page-list-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PageResetPasswordComponent', 'selector': 'app-page-reset-password'},{'name': 'PageSignInComponent', 'selector': 'app-page-sign-in'},{'name': 'PageSignUpComponent', 'selector': 'app-page-sign-up'}];
+        var COMPONENT_TEMPLATE = '<div><app-template-container>    <!-- ici contenu de cette page est projeté    à la place de ng-content -->    <h1>contenu page-list-orders</h1></app-template-container></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'IconCloseComponent', 'selector': 'app-icon-close'},{'name': 'IconDeleteComponent', 'selector': 'app-icon-delete'},{'name': 'IconEditComponent', 'selector': 'app-icon-edit'},{'name': 'IconNavComponent', 'selector': 'app-icon-nav'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddClientComponent', 'selector': 'app-page-add-client'},{'name': 'PageAddOrderComponent', 'selector': 'app-page-add-order'},{'name': 'PageEditClientComponent', 'selector': 'app-page-edit-client'},{'name': 'PageEditOrderComponent', 'selector': 'app-page-edit-order'},{'name': 'PageForgotPasswordComponent', 'selector': 'app-page-forgot-password'},{'name': 'PageListClientsComponent', 'selector': 'app-page-list-clients'},{'name': 'PageListOrdersComponent', 'selector': 'app-page-list-orders'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PageResetPasswordComponent', 'selector': 'app-page-reset-password'},{'name': 'PageSignInComponent', 'selector': 'app-page-sign-in'},{'name': 'PageSignUpComponent', 'selector': 'app-page-sign-up'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'TemplateFullWidthComponent', 'selector': 'app-template-full-width'},{'name': 'Ui2Component', 'selector': 'app-ui2'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageListOrdersComponent'};
 </script>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-template-full-width',
@@ -11,7 +11,9 @@ export class TemplateFullWidthComponent implements OnInit {
   // si propriété pas initialisée dans le constructor
   // public title!: string;
   // public title: string | undefined;
-  public title: string;
+  // public title: string;
+
+   @Input() title: string;
   
   // injection de la classe ordersService
   constructor() {

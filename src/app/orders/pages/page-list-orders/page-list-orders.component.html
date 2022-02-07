@@ -1,4 +1,7 @@
-<app-template-container>
+<app-template-container [propEnfant]="propParent">
+    <!-- modifier la valeur de propParent -->
+    <button (click)="onChangeTitle()">Changer le titre</button>
+
     <!-- ici contenu de cette page est projeté
     à la place de ng-content -->
     <h1>contenu page-list-orders</h1>
