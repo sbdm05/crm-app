@@ -8,7 +8,7 @@ import { Order } from 'src/app/core/models/order';
 })
 export class TableLightComponent implements OnInit {
 
-  @Input() public collection !: Order[] 
+  
   @Input() public headers !: string[] 
 
   constructor() { 
@@ -17,7 +17,7 @@ export class TableLightComponent implements OnInit {
   }
 
   ngOnChanges(){
-    console.log(this.collection) // valeur affectée
+   
   }
 
   ngOnInit(): void {

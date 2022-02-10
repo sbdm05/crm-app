@@ -5,7 +5,18 @@
     <!-- ici contenu de cette page est projeté
     à la place de ng-content -->
     <h1>contenu page-list-orders</h1>
-    <app-table-light [collection]= "collection" [headers]="headers"></app-table-light>
+    <app-table-light [headers]="headers">
+        <tr *ngFor="let i of collection">
+            <th scope="row">{{i.id}}</th>
+            <!--  table data cells (td)-->
+            <td>{{i.client}}</td>
+            <td>{{i.nbJours}}</td>
+            <td>{{i.tjmHt}}</td>
+            <td>total HT</td>
+            <td>total TTC</td>
+            <td>{{i.state}}</td>
+        </tr>
+    </app-table-light>
     
 
 </app-template-full-width>
