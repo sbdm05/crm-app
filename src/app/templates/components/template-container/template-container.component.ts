@@ -13,7 +13,7 @@ export class TemplateContainerComponent implements OnInit {
   // public title: string | undefined;
 
   // import de la valeur depuis Parent
-  @Input() propEnfant!: any;
+  @Input() propEnfant!: string;
   
   constructor() { 
     // this.propEnfant n'est pas encore lu depuis le template html

@@ -1,9 +1,12 @@
-<app-template-container [propEnfant]="propParent">
+<app-template-full-width [propEnfant]="propParent" *ngIf="collection">
     <!-- modifier la valeur de propParent -->
     <button (click)="onChangeTitle()">Changer le titre</button>
 
     <!-- ici contenu de cette page est projeté
     à la place de ng-content -->
     <h1>contenu page-list-orders</h1>
-</app-template-container>
+    <app-table-light [collection]= "collection" [headers]="headers"></app-table-light>
+    
+
+</app-template-full-width>
 

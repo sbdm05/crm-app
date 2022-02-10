@@ -13,11 +13,15 @@ export class TemplateFullWidthComponent implements OnInit {
   // public title: string | undefined;
   // public title: string;
 
-   @Input() title: string;
+   @Input() propEnfant: string;
   
   // injection de la classe ordersService
   constructor() {
-    this.title = "titre"
+    this.propEnfant = "titre"
+  }
+
+  ngOnChanges(){
+    console.log('test depuis template')
   }
 
   ngOnInit(): void {

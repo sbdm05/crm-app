@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { PageResetPasswordComponent } from './login/pages/page-reset-password/page-reset-password.component';
-import { PageSignInComponent } from './login/pages/page-sign-in/page-sign-in.component';
 import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
