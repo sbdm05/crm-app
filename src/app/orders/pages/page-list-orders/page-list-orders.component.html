@@ -17,7 +17,11 @@
             <!-- valeur de return du Pipe -->
             <td>{{ i | total | currency }}</td>
             <td>{{ i| total : true }}</td>
-            <td>{{i.state}}</td>
+            <td class="state-confirmed">
+              <select (change)="changeState(i, $event)">
+                <option *ngFor="let state of states" [value]="state" [selected]="i.state === state">{{state}}</option>
+              </select>
+            </td>
         </tr>
     </app-table-light>
 

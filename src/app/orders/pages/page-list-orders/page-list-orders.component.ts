@@ -1,14 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 import { Observable, BehaviorSubject, Subscription} from 'rxjs';
+import { StateOrder } from 'src/app/core/enums/state-order';
 
 @Component({
   selector: 'app-page-list-orders',
   templateUrl: './page-list-orders.component.html',
   styleUrls: ['./page-list-orders.component.scss']
 })
-export class PageListOrdersComponent implements OnInit, OnDestroy{
+export class PageListOrdersComponent implements OnInit{
+
+  // ici on obtient un tableau avec comme valeur les valeurs des propriétés de l'objet StateOrder
+  public states = Object.values(StateOrder);
 
   public propParent: string
 
@@ -41,17 +45,28 @@ export class PageListOrdersComponent implements OnInit, OnDestroy{
     this.collection$ = this.ordersService.collection
 
   }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   ngOnInit(): void {
     // on souscrit à l'observable à chaque ngOnInit()
     this.sub = this.test.subscribe((data: any) => console.log(data));
   }
 
+  ngOnChanges(){
+    //this.changeState(e);
+  }
+
   public onChangeTitle(){
     this.propParent = "nouveau titre dans onChangeTitle"
+  }
+
+  public changeState(i: any, e: any): void{
+    const state = e.target.value;
+    this.ordersService.changeState(i, state).subscribe((data: any)=> {
+      console.log(data, "data");
+      i = data;
+      console.log(i, "i");
+    })
   }
 
   ngOnDetroy(): void{

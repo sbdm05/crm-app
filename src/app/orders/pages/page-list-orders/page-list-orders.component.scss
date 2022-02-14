@@ -1,5 +1,5 @@
 
-   
+
 .bandeau {
   padding: 1.5rem;
   background: var(--app-primary);
@@ -13,4 +13,14 @@
 .my-container {
   max-width: 500px;
   margin: auto;
+}
+
+.state-canceled{
+  background: var(--app-error);
+}
+.state-option{
+  background: var(--app-warning);
+}
+.state-confirmed{
+  background: var(--app-success);
 }
