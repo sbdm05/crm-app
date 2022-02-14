@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Order } from 'src/app/core/models/order';
 import { environment } from 'src/environments/environment'
 
@@ -23,10 +24,14 @@ export class OrdersService {
   constructor(
     private http : HttpClient
   ) { 
-    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`)
+    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`).pipe(
+      map((tab: any)=>{
+        return tab.map((obj: any)=>{
+          return new Order(obj)
+        }) 
+      })
+    )
   }
-  // lister 
-  // private collection orders (suite appel http)
 
   // get collection
   public get collection (): Observable<Order[]>{

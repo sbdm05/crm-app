@@ -1,6 +1,8 @@
-<app-template-full-width [propEnfant]="propParent" *ngIf="collection">
+<app-template-full-width [propEnfant]="propParent" *ngIf="collection$ | async as collection">
     <!-- modifier la valeur de propParent -->
     <button (click)="onChangeTitle()">Changer le titre</button>
+
+    <!--ici collection : {{collection | json}}-->
 
     <!-- ici contenu de cette page est projeté
     à la place de ng-content -->
@@ -9,15 +11,16 @@
         <tr *ngFor="let i of collection">
             <th scope="row">{{i.id}}</th>
             <!--  table data cells (td)-->
-            <td>{{i.client}}</td>
+            <td>{{i.client | uppercase }}</td>
             <td>{{i.nbJours}}</td>
-            <td>{{i.tjmHt}}</td>
-            <td>total HT</td>
-            <td>total TTC</td>
+            <td>{{i.tjmHt | currency}}</td>
+            <!-- valeur de return du Pipe -->
+            <td>{{ i | total | currency }}</td>
+            <td>{{ i| total : true }}</td>
             <td>{{i.state}}</td>
         </tr>
     </app-table-light>
-    
+
 
 </app-template-full-width>
 

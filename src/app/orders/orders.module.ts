@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orders.component';
 import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.component';
@@ -15,9 +15,12 @@ import { SharedModule } from '../shared/shared.module';
     PageEditOrderComponent
   ],
   imports: [
-    CommonModule, 
-    OrdersRoutingModule, 
+    CommonModule,
+    OrdersRoutingModule,
     SharedModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class OrdersModule { }
