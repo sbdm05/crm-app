@@ -54,18 +54,22 @@ export class PageListOrdersComponent implements OnInit{
 
   ngOnChanges(){
     //this.changeState(e);
+    console.log('test')
   }
 
   public onChangeTitle(){
     this.propParent = "nouveau titre dans onChangeTitle"
   }
 
-  public changeState(i: any, e: any): void{
+  public changeState(item: any, e: any): void{
     const state = e.target.value;
-    this.ordersService.changeState(i, state).subscribe((data: any)=> {
+    this.ordersService.changeState(item, state).subscribe((data: any)=> {
       console.log(data, "data");
-      i = data;
-      console.log(i, "i");
+      // ici item pointe vers data
+      //item = data;
+      Object.assign(item, data)
+      // spread operator ne
+      // item = {...data}
     })
   }
 

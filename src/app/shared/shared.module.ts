@@ -5,6 +5,7 @@ import { TemplatesModule } from '../templates/templates.module';
 import { TableLightComponent } from './components/table-light/table-light.component';
 import { BtnComponent } from './components/btn/btn.component';
 import { TotalPipe } from './pipes/total.pipe';
+import { StateDirective } from './directives/state.directive';
 
 
 
@@ -12,14 +13,15 @@ import { TotalPipe } from './pipes/total.pipe';
   declarations: [
     TableLightComponent,
     BtnComponent,
-    TotalPipe
+    TotalPipe,
+    StateDirective
   ],
   imports: [
     CommonModule
   ], 
   exports: [
     IconsModule, 
-    TemplatesModule, TableLightComponent, BtnComponent, TotalPipe 
+    TemplatesModule, TableLightComponent, BtnComponent, TotalPipe, StateDirective 
   ]
 })
 export class SharedModule { }

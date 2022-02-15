@@ -8,18 +8,18 @@
     à la place de ng-content -->
     <h1>contenu page-list-orders</h1>
     <app-table-light [headers]="headers">
-        <tr *ngFor="let i of collection">
-            <th scope="row">{{i.id}}</th>
+        <tr *ngFor="let item of collection">
+            <th scope="row">{{item.id}}</th>
             <!--  table data cells (td)-->
-            <td>{{i.client | uppercase }}</td>
-            <td>{{i.nbJours}}</td>
-            <td>{{i.tjmHt | currency}}</td>
+            <td>{{item.client | uppercase }}</td>
+            <td>{{item.nbJours}}</td>
+            <td>{{item.tjmHt | currency}}</td>
             <!-- valeur de return du Pipe -->
-            <td>{{ i | total | currency }}</td>
-            <td>{{ i| total : true }}</td>
-            <td class="state-confirmed">
-              <select (change)="changeState(i, $event)">
-                <option *ngFor="let state of states" [value]="state" [selected]="i.state === state">{{state}}</option>
+            <td>{{ item | total | currency }}</td>
+            <td>{{ item| total : true }}</td>
+            <td [appState]="item.state">
+              <select (change)="changeState(item, $event)">
+                <option *ngFor="let state of states" [value]="state" [selected]="item.state === state">{{state}}</option>
               </select>
             </td>
         </tr>
