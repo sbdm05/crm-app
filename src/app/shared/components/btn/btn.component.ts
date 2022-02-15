@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-btn',
@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BtnComponent implements OnInit {
 
+  // deux variables à afficher dans le html
+  @Input() public label!: string;
+  @Input() public route!: string;
+
   constructor() { }
 
   ngOnChanges(){
     console.log('test depuis btn');
-    
+
   }
 
   ngOnInit(): void {

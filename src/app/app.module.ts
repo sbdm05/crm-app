@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     HttpClientModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [
 { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }
