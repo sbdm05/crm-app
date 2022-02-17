@@ -62,11 +62,10 @@ export class OrdersService {
     return this.http.put<Order[]>(`${this.urlApi}/orders/${item.id}`, item)
   }
 
-  // edit state item
-
-  // update item in collection (put ou patch)
-
   // add item in collection (post)
+    public add(item: Order): Observable<any>{
+    return this.http.post<Order[]>(`${this.urlApi}/orders`, item)
+  }
 
   // delete item in collection (delete)
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { FormBuilder } from '@angular/forms';
@@ -14,6 +14,11 @@ export class FormOrderComponent implements OnInit {
   // on crée un tableau à partir de Enum StateOrder
   public states = Object.values(StateOrder);
   @Input() init!: Order;
+  // besoin d'un objet event + observable chaud
+  // ici eventEmitter n'est pas initialisé
+  // il sera initialisé quand il sera appelé
+  @Output() submitted = new EventEmitter<Order>();
+
   // on initialise form de type FormGroup
   public form!: FormGroup;
 
@@ -34,4 +39,15 @@ export class FormOrderComponent implements OnInit {
       id: [this.init.id]
     })
   }
+
+  public onSubmit(){
+    console.log(this.form.value);
+    // initialise l'observable EventEmitter avec flux de données
+    // équivalent à .next()
+    // angular ne veut pas trop dépendre de l'API rxjs ?
+    // https://github.com/angular/angular/issues/29499
+    this.submitted.emit(this.form.value)
+  }
+
+
 }
