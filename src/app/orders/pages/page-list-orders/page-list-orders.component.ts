@@ -3,6 +3,7 @@ import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
 import { Observable, BehaviorSubject, Subscription} from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -27,10 +28,13 @@ export class PageListOrdersComponent implements OnInit{
   public collection$!: Observable<Order[]>;
 
 
-  public headers = ['Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'];
+  public headers = ['Action', 'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'];
 
   // injection de la classe ordersService
-  constructor(private ordersService : OrdersService) {
+  constructor(
+    private ordersService : OrdersService,
+    private router: Router
+    ) {
     this.propParent = "titre au démarrage"
 
     //console.log('test')
@@ -71,6 +75,10 @@ export class PageListOrdersComponent implements OnInit{
       // spread operator ne
       // item = {...data}
     })
+  }
+
+  public goToEdit(item: Order): void{
+    this.router.navigate(['orders', 'edit', item.id])
   }
 
   ngOnDetroy(): void{
