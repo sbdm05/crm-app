@@ -12,15 +12,17 @@ import {map} from 'rxjs/operators';
 })
 export class PageEditOrderComponent implements OnInit {
 
-  public item!: Order
+  // public item!: Order
+  public item$ !: Observable<Order>;
 
   constructor(
     private orderservice : OrdersService,
     private router : Router,
     private activatedRoute: ActivatedRoute
     ) {
-    const id = this.activatedRoute.snapshot.params['item.id'];
+    const id = this.activatedRoute.snapshot.params['id'];
     console.log(id)
+    this.item$ = this.orderservice.getItemId(id);
     }
 
   ngOnInit(): void {

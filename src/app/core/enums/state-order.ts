@@ -1,9 +1,9 @@
 export enum StateOrder {
-    CANCELED =  'CANCELED',
+    CANCELLED =  'CANCELLED',
     OPTION = "OPTION",
     CONFIRMED = "CONFIRMED"
 }
 
-// StateOrder.CANCELED retourne 0
+// StateOrder.CANCELLED retourne 0
 // StateOrder.OPTION retourne 1
 // StateOrder.CONFIRMED retourne 2

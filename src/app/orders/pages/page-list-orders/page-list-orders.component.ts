@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from '../../services/orders.service';
-import { Observable, BehaviorSubject, Subscription} from 'rxjs';
+import { BehaviorSubject, Subject, Subscription} from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-page-list-orders',
@@ -25,7 +26,7 @@ export class PageListOrdersComponent implements OnInit{
 
   //public collection !: Order[];
   // j'initialise une variable de type Observable
-  public collection$!: Observable<Order[]>;
+  public collection$!: Subject<Order[]>;
 
 
   public headers = ['Action', 'Type', 'Client', 'NbJours', 'Tjm HT', 'Total HT', 'Total TTC', 'State'];
@@ -72,13 +73,18 @@ export class PageListOrdersComponent implements OnInit{
       // ici item pointe vers data
       //item = data;
       Object.assign(item, data)
-      // spread operator ne
+      // spread operator
       // item = {...data}
     })
   }
 
   public goToEdit(item: Order): void{
     this.router.navigate(['orders', 'edit', item.id])
+  }
+
+  public deleteItem(item: Order)  :void{
+    // appel service
+    this.ordersService.delete(item).subscribe();
   }
 
   ngOnDetroy(): void{

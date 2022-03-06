@@ -6,13 +6,15 @@
 
     <!-- ici contenu de cette page est projeté
     à la place de ng-content -->
-    <h1>contenu page-list-orders</h1>
+    <!-- <h1>contenu page-list-orders</h1> -->
     <app-table-light [headers]="headers">
         <tr *ngFor="let item of collection">
             <th scope="row">{{item.id}}</th>
             <!--  table data cells (td)-->
             <td>
               <app-icon-edit (click)="goToEdit(item)"></app-icon-edit>
+              <app-icon-delete (click)="deleteItem(item)"></app-icon-delete>
+
             </td>
             <td>{{item.client | uppercase }}</td>
             <td>{{item.nbJours}}</td>
@@ -20,7 +22,7 @@
             <!-- valeur de return du Pipe -->
             <td>{{ item | total | currency }}</td>
             <td>{{ item| total : true }}</td>
-            <td [appState]="item.state">
+            <td [ngClass]="'state-' + item.state.toLowerCase()">
               <select (change)="changeState(item, $event)">
                 <option *ngFor="let state of states" [value]="state" [selected]="item.state === state">{{state}}</option>
               </select>
