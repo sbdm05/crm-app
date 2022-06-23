@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-list-orders.component.scss']
 })
 export class PageListOrdersComponent implements OnInit{
+  
 
   // ici on obtient un tableau avec comme valeur les valeurs des propriétés de l'objet StateOrder
   public states = Object.values(StateOrder);
